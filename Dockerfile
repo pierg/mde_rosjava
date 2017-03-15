@@ -5,6 +5,7 @@ RUN apt-get update
 
 #install necessary packages
 RUN apt-get install -q -y g++ wget
+RUN apt-get install unzip
 
 #install image processing related packages
 RUN apt-get install -q -y ros-indigo-rosjava \
@@ -23,14 +24,14 @@ RUN apt-get install -q -y ros-indigo-rosjava \
 # RUN apt-get install -q -y gazebo7 libgazebo7-dev ros-indigo-gazebo7-ros 
 
 
-# Add oracle-jdk7 to repositories
-RUN add-apt-repository ppa:webupd8team/java -y
+# # Add oracle-jdk7 to repositories
+# RUN add-apt-repository ppa:webupd8team/java -y
 
-# Update apt
-RUN apt-get update
+# # Update apt
+# RUN apt-get update
 
-# Install oracle-jdk7
-RUN apt-get -y install oracle-java7-installer
+# # Install oracle-jdk7
+# RUN apt-get -y install oracle-java7-installer
 
 # Install Gradle
 RUN wget https://services.gradle.org/distributions/gradle-2.0-bin.zip
@@ -48,7 +49,7 @@ RUN bash -c "source /opt/ros/indigo/setup.bash;catkin_make -C ~/catkin_ws"
 ENV GRADLE_HOME /opt/gradle-2.0
 
 # Export JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
+# ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
 # Clean up
 RUN apt-get clean
