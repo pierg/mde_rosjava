@@ -16,15 +16,15 @@ RUN apt-get install -q -y ros-indigo-rosjava \
     ros-indigo-turtlebot-interactions \
     ros-indigo-turtlebot-simulator
 
-#install gazebo 7
-RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-RUN apt-get update
-RUN apt-get install -q -y gazebo7 libgazebo7-dev ros-indigo-gazebo7-ros 
+# #install gazebo 7
+# RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+# RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+# RUN apt-get update
+# RUN apt-get install -q -y gazebo7 libgazebo7-dev ros-indigo-gazebo7-ros 
 
 
 # Add oracle-jdk7 to repositories
-RUN add-apt-repository ppa:webupd8team/java
+RUN add-apt-repository ppa:webupd8team/java -y
 
 # Update apt
 RUN apt-get update
